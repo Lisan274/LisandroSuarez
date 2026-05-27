@@ -1,1 +1,18 @@
-<p>delete-confirm-modal works!</p>
+<div class="modal-backdrop">
+  <div class="modal-box">
+    <p>
+      ¿Estás seguro de eliminar el producto
+      <strong>{{ productName }}</strong>?
+    </p>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" type="button" (click)="closeModal()">
+        Cancelar
+      </button>
+
+      <button class="btn-delete" type="button" (click)="deleteProduct()">
+        {{ deleting ? 'Eliminando...' : 'Confirmar' }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,235 @@
+.products-page {
+  min-height: 100vh;
+  padding: 45px 35px;
+  background-color: #f5f6fa;
+}
+
+.products-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 65px;
+}
+
+.bank-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #12325c;
+
+  h1 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+}
+
+.bank-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.list-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  width: 210px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #d8dce5;
+  border-radius: 5px;
+  background-color: #fff;
+  outline: none;
+
+  &:focus {
+    border-color: #9aa4b5;
+  }
+}
+
+.btn-add {
+  min-width: 95px;
+  height: 42px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #f2d24b;
+  color: #222;
+  font-weight: 700;
+
+  &:hover {
+    background-color: #e5c63f;
+  }
+}
+
+.products-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #fff;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+
+  th,
+  td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #edf0f4;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: 700;
+    color: #252f3f;
+  }
+
+  td {
+    color: #3d4655;
+  }
+}
+
+.product-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #d5dae3;
+}
+
+.info-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+  border-radius: 50%;
+  background-color: #6f7785;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.product-options {
+  width: 48px;
+  text-align: center;
+}
+
+.btn-options {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #6a7280;
+  font-size: 23px;
+  line-height: 1;
+
+  &:hover {
+    color: #222;
+  }
+}
+
+.empty-table {
+  padding: 22px;
+  text-align: center;
+  color: #555f70;
+}
+
+.table-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  color: #374151;
+  font-size: 14px;
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-page {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d8dce5;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 18px;
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.current-page {
+  color: #4b5563;
+}
+
+.rows-select {
+  height: 32px;
+  min-width: 60px;
+  padding: 0 8px;
+  border: 1px solid #d8dce5;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.status-message {
+  padding: 22px;
+  text-align: center;
+  color: #555f70;
+}
+
+.error-message {
+  padding: 14px 16px;
+  border-radius: 5px;
+  background-color: #fdecec;
+  color: #b42318;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .products-page {
+    padding: 30px 16px;
+  }
+
+  .page-header {
+    margin-bottom: 38px;
+  }
+
+  .list-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .search-box,
+  .btn-add {
+    width: 100%;
+  }
+
+  .table-summary {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .table-controls {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

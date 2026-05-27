@@ -1,1 +1,15 @@
-<p>product-action-menu works!</p>
+<div class="actions-menu">
+  <button class="btn-options" type="button" (click)="toggleMenu()">
+    ⋮
+  </button>
+
+  <div class="menu-box" *ngIf="open">
+    <button type="button" (click)="editProduct()">
+      Editar
+    </button>
+
+    <button type="button" (click)="deleteProduct()">
+      Eliminar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.actions-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-options {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #6a7280;
+  font-size: 23px;
+  line-height: 1;
+
+  &:hover {
+    color: #222;
+  }
+}
+
+.menu-box {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  z-index: 5;
+  min-width: 110px;
+  padding: 6px 0;
+  border: 1px solid #e1e5ec;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+
+  button {
+    width: 100%;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 14px;
+    color: #2f3847;
+
+    &:hover {
+      background-color: #f4f6fa;
+    }
+  }
+}

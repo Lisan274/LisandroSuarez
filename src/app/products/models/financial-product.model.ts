@@ -1,17 +1,17 @@
 export interface FinancialProduct {
-    id: string;
-    name: string;
-    description: string;
-    logo: string;
-    data_release: string;
-    date_revision: string;
+  id: string;
+  name: string;
+  description: string;
+  logo: string;
+  date_release: string;
+  date_revision: string;
+}
+
+export interface ProductsResponse {
+  data: FinancialProduct[];
 }
 
 export interface ProductResponse {
-    data: FinancialProduct[];
-}
-
-export interface ProductRespone {
-    message: string;
-    data: FinancialProduct[];
+  message: string;
+  data: FinancialProduct;
 }

@@ -1,1 +1,105 @@
-<p>product-list works!</p>
+<main class="products-page">
+  <div class="products-container">
+    <header class="page-header">
+      <div class="bank-brand">
+        <span class="bank-icon">▣</span>
+        <h1>BANCO</h1>
+      </div>
+    </header>
+
+    <div class="list-actions">
+      <input type="text" class="search-box" placeholder="Search..." [(ngModel)]="searchTerm"
+        (ngModelChange)="searchProducts()" />
+
+      <button class="btn-add" type="button" (click)="addProduct()">
+        Agregar
+      </button>
+    </div>
+
+    <p class="status-message" *ngIf="loading">
+      Cargando productos financieros...
+    </p>
+
+    <p class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+    <div class="products-table-wrapper" *ngIf="!loading && !errorMessage">
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Nombre del producto</th>
+            <th>
+              Descripción
+              <span class="info-icon">i</span>
+            </th>
+            <th>
+              Fecha de liberación
+              <span class="info-icon">i</span>
+            </th>
+            <th>
+              Fecha de reestructuración
+              <span class="info-icon">i</span>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let product of paginatedProducts">
+            <td>
+              <img class="product-logo" [src]="product.logo" [alt]="product.name" (error)="setDefaultLogo($event)" />
+            </td>
+
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+
+            <td class="product-options">
+              <app-product-action-menu (edit)="editProduct(product.id)"
+                (remove)="askDelete(product)"></app-product-action-menu>
+            </td>
+          </tr>
+
+          <tr *ngIf="paginatedProducts.length === 0">
+            <td class="empty-table" colspan="6">
+              No existen productos financieros registrados.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-summary" *ngIf="!loading && !errorMessage">
+      <span>
+        {{ showingFrom }} - {{ showingTo }} de
+        {{ filteredProducts.length }} resultados
+      </span>
+
+      <div class="table-controls">
+        <button class="btn-page" type="button" [disabled]="currentPage === 1" (click)="previousPage()">
+          ‹
+        </button>
+
+        <span class="current-page">
+          Página {{ currentPage }} de {{ totalPages }}
+        </span>
+
+        <button class="btn-page" type="button" [disabled]="currentPage === totalPages" (click)="nextPage()">
+          ›
+        </button>
+
+        <select class="rows-select" [(ngModel)]="pageSize" (ngModelChange)="changePageSize()">
+          <option *ngFor="let option of pageSizeOptions" [ngValue]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <app-delete-confirm-modal *ngIf="selectedProduct" [productName]="selectedProduct.name" [deleting]="deleting"
+    (cancel)="closeDeleteModal()" (confirm)="confirmDelete()"></app-delete-confirm-modal>
+</main>

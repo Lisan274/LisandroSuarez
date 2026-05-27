@@ -1,0 +1,187 @@
+.product-page {
+  min-height: 100vh;
+  padding: 45px 30px;
+  background-color: #f5f6fa;
+}
+
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.bank-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 55px;
+  color: #12325c;
+
+  h1 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+  }
+}
+
+.bank-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.product-form {
+  background-color: #fff;
+  padding: 36px 42px;
+  border-radius: 2px;
+
+  h2 {
+    margin: 0 0 34px;
+    text-align: center;
+    font-size: 28px;
+    color: #222;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+  }
+
+  input {
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #cfd5df;
+    border-radius: 4px;
+    outline: none;
+    background-color: #fff;
+
+    &:focus {
+      border-color: #8d98aa;
+    }
+
+    &:disabled {
+      background-color: #f1f3f6;
+      color: #6b7280;
+    }
+  }
+}
+
+.has-error {
+  border-color: #d9534f !important;
+}
+
+.error-text {
+  margin-top: 5px;
+  color: #d9534f;
+  font-size: 12px;
+}
+
+.checking-text {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.form-error {
+  margin: 22px 0 0;
+  padding: 12px 14px;
+  border-radius: 4px;
+  background-color: #fdecec;
+  color: #b42318;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+  margin-top: 45px;
+}
+
+.btn-clean,
+.btn-save,
+.back-link {
+  min-width: 105px;
+  height: 42px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.btn-clean {
+  background-color: #e7e9f3;
+  color: #1f2937;
+
+  &:hover {
+    background-color: #d9dce8;
+  }
+}
+
+.btn-save {
+  background-color: #f2d24b;
+  color: #222;
+
+  &:hover {
+    background-color: #e5c63f;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.back-link {
+  display: block;
+  margin: 25px auto 0;
+  background-color: transparent;
+  color: #12325c;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-page {
+    padding: 30px 16px;
+  }
+
+  .bank-header {
+    margin-bottom: 38px;
+  }
+
+  .product-form {
+    padding: 28px 22px;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    gap: 18px;
+  }
+
+  .btn-clean,
+  .btn-save {
+    width: 100%;
+  }
+}

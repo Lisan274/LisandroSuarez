@@ -1,1 +1,119 @@
-<p>product-form works!</p>
+<main class="product-page">
+  <div class="content">
+    <div class="bank-header">
+      <span class="bank-icon">▣</span>
+      <h1>BANCO</h1>
+    </div>
+
+    <form class="product-form" [formGroup]="productForm" (ngSubmit)="saveProduct()">
+      <h2>{{ isEdit ? 'Formulario de Edición' : 'Formulario de Registro' }}</h2>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="id">ID</label>
+          <input
+            id="id"
+            type="text"
+            formControlName="id"
+            [class.has-error]="hasError('id')"
+          />
+
+          <small class="checking-text" *ngIf="productForm.get('id')?.pending">
+            Verificando ID...
+          </small>
+
+          <small class="error-text" *ngIf="hasError('id')">
+            {{ getErrorMessage('id') }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            [class.has-error]="hasError('name')"
+          />
+
+          <small class="error-text" *ngIf="hasError('name')">
+            {{ getErrorMessage('name') }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="description">Descripción</label>
+          <input
+            id="description"
+            type="text"
+            formControlName="description"
+            [class.has-error]="hasError('description')"
+          />
+
+          <small class="error-text" *ngIf="hasError('description')">
+            {{ getErrorMessage('description') }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="logo">Logo</label>
+          <input
+            id="logo"
+            type="text"
+            formControlName="logo"
+            [class.has-error]="hasError('logo')"
+          />
+
+          <small class="error-text" *ngIf="hasError('logo')">
+            {{ getErrorMessage('logo') }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="date_release">Fecha Liberación</label>
+          <input
+            id="date_release"
+            type="date"
+            formControlName="date_release"
+            [class.has-error]="hasError('date_release')"
+          />
+
+          <small class="error-text" *ngIf="hasError('date_release')">
+            {{ getErrorMessage('date_release') }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="date_revision">Fecha Revisión</label>
+          <input
+            id="date_revision"
+            type="date"
+            formControlName="date_revision"
+          />
+        </div>
+      </div>
+
+      <p class="form-error" *ngIf="saveError">
+        {{ saveError }}
+      </p>
+
+      <div class="buttons">
+        <button type="button" class="btn-clean" (click)="resetForm()">
+          Reiniciar
+        </button>
+
+        <button
+          type="submit"
+          class="btn-save"
+          [disabled]="isSaving || productForm.pending"
+        >
+          {{ isSaving ? 'Guardando...' : isEdit ? 'Guardar' : 'Agregar' }}
+        </button>
+      </div>
+    </form>
+
+    <button type="button" class="back-link" (click)="goBack()">
+      Volver al listado
+    </button>
+  </div>
+</main>
